@@ -2,11 +2,11 @@ def encrypt_caesar(plaintext: str) -> str:
     """
     >>> encrypt_caesar("PYTHON")
     'SBWKRQ'
-    >>> encrypt_caesar("python")
+    >>> encrypt_caesar("python") 
     'sbwkrq'
     >>> encrypt_caesar("Python3.6")
     'Sbwkrq3.6'
-    >>> encrypt_caesar("")
+    >>> encrypt_caesar("") 
     ''
     """
     ciphertext = ""
