@@ -1,6 +1,5 @@
 import random
 
-
 def is_prime(n):
     """
     Tests to see if a number is prime.
@@ -17,13 +16,13 @@ def is_prime(n):
         return True
     else:
         f = 0
-        for i in range(2, n + 1):
+        for i in range(3, n + 1):
             if n % i == 0:
                 f += 1
+            if f == 2:
+                return False
         if f == 1:
             return True
-        else:
-            return False
     pass
 
 
