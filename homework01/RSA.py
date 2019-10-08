@@ -51,7 +51,18 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
-    # PUT YOUR CODE HERE
+    e, phi = phi, e
+    mem = e
+    A = []
+    while e % phi != 0:
+        A.append(e // phi)
+        e, phi = phi, e % phi
+    x = 0
+    y = 1
+    while A:
+        x, y = y, x - y * A[-1]
+        A = A[:-1]
+    return y % mem
     pass
 
 
@@ -61,11 +72,8 @@ def generate_keypair(p, q):
     elif p == q:
         raise ValueError('p and q cannot be equal')
 
-    # n = pq
-    # PUT YOUR CODE HERE
-
-    # phi = (p-1)(q-1)
-    # PUT YOUR CODE HERE
+    n = pq
+    phi = (p-1)(q-1)
 
     # Choose an integer e such that e and phi(n) are coprime
     e = random.randrange(1, phi)
@@ -81,7 +89,7 @@ def generate_keypair(p, q):
 
     # Return public and private keypair
     # Public key is (e, n) and private key is (d, n)
-    return ((e, n), (d, n))
+    return (e, n), (d, n)
 
 
 def encrypt(pk, plaintext):
