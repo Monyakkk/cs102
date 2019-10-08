@@ -1,5 +1,6 @@
 import random
 
+
 def is_prime(n):
     """
     Tests to see if a number is prime.
