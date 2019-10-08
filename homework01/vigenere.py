@@ -34,8 +34,8 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     'ATTACKATDAWN'
     """
     plaintext = ""
-    for i in range (len(plaintext)):
-        x = ord(plaintext[i])
+    for i in range (len(ciphertext)):
+        x = ord(ciphertext[i])
         y = ord(keyword[i % len(keyword)])
         if 65 <= y <= 90:
             y -= 65
