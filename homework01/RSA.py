@@ -1,4 +1,5 @@
 import random
+import math
 
 
 def is_prime(n):
@@ -15,15 +16,13 @@ def is_prime(n):
         return False
     if n == 2:
         return True
+    elif n % 2 == 0:
+        return False
     else:
-        f = 0
-        for i in range(3, n + 1):
+        for i in range(3, int(math.sqrt(n) + 1)):
             if n % i == 0:
-                f += 1
-            if f == 2:
                 return False
-        if f == 1:
-            return True
+        return True
     pass
 
 
