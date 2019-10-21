@@ -1,3 +1,4 @@
+# coding=utf-8
 from typing import Tuple, List, Set, Optional
 
 
@@ -28,9 +29,13 @@ def group(values: List[str], n: int) -> List[List[str]]:
     >>> group([1,2,3,4,5,6,7,8,9], 3)
     [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     """
-    pass
-
-
+    A=[]
+    for i in range (n):
+        L = []
+        for j in range (n):
+            L.append(values[i*n+j])
+        A.append(L)
+    return A
 def get_row(grid: List[List[str]], pos: Tuple[int, int]) -> List[str]:
     """ Возвращает все значения для номера строки, указанной в pos
 
