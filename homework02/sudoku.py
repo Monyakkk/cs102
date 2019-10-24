@@ -111,7 +111,8 @@ def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str
     >>> values == {'2', '5', '9'}
     True
     """
-    pass
+
+    return set('123456789') - set(get_row(grid, pos)) - set(get_col(grid, pos)) - set(get_block(grid, pos))
 
 
 def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
