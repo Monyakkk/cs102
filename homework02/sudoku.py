@@ -97,7 +97,7 @@ def find_empty_positions(grid: List[List[str]]) -> Optional[Tuple[int, int]]:
     for i in range (len(grid)):
         for j in range (len(grid[0])):
             if grid[i][j] == ".":
-                return (i, j)
+                return i, j
     return False
 
 def find_possible_values(grid: List[List[str]], pos: Tuple[int, int]) -> Set[str]:
