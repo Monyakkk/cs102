@@ -132,8 +132,9 @@ def solve(grid: List[List[str]]) -> Optional[List[List[str]]]:
     if pos:
         for value in find_possible_values(grid, pos):
             grid[pos[0]][pos[1]] = value
-            if solve(grid):
-                return solve(grid)
+            s = solve(grid)
+            if s:
+                return s
         grid[pos[0]][pos[1]] = '.'
         return None
     else:
