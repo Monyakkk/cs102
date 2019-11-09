@@ -68,7 +68,7 @@ class GameOfLife:
                     if value == 1:
                         count += 1
 
-                val = self.prev_generation[i][j]
+                val = self.curr_generation[i][j]
                 if val == 1:
                     if count < 2:
                         A[i].append(0)
