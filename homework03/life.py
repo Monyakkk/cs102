@@ -52,7 +52,8 @@ class GameOfLife:
         for i in range(-1, 2):
             for j in range(-1, 2):
                 if 0 <= cell[0] + i < self.rows and 0 <= cell[1] + j < self.cols and (i, j) != (0, 0):
-                    neighbours.append(self.prev_generation[cell[0] + i][cell[1] + j])
+                    neighbours.append(self.curr_generation[cell[0] + i][cell[1] + j])
+        
         return neighbours
 
 

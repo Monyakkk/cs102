@@ -141,7 +141,7 @@ class GameOfLife:
         for i in range(-1, 2):
             for j in range(-1, 2):
                 if 0 <= cell[0] + i < self.cell_height and 0 <= cell[1] + j < self.cell_width and (i, j) != (0, 0):
-                    A.append(self.previous_generation[cell[0] + i][cell[1] + j])
+                    A.append(self.current_generation[cell[0] + i][cell[1] + j])
         return A
 
 
