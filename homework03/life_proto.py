@@ -31,7 +31,7 @@ class GameOfLife:
         self.speed = speed
 
         # Создаем поколения для начала игры
-        self.current_generation = self.create_grid(randomize=True)
+        self.grid = self.create_grid(randomize=True)
         self.previous_generation = self.create_grid(randomize=True)
 
     def draw_lines(self) -> None:
@@ -51,7 +51,7 @@ class GameOfLife:
         self.screen.fill(pygame.Color('white'))
 
         # Создание списка клеток
-        self.current_generation = self.create_grid(randomize=True)
+        self.grid = self.create_grid(randomize=True)
         self.previous_generation = self.create_grid()
 
         running = True
@@ -64,7 +64,7 @@ class GameOfLife:
             self.draw_grid()
             # Выполнение одного шага игры (обновление состояния ячеек)
             self.previous_generation = self.current_generation
-            self.current_generation = self.get_next_generation()
+            self.grid = self.get_next_generation()
 
             pygame.display.flip()
             clock.tick(self.speed)
@@ -111,7 +111,7 @@ class GameOfLife:
         """
         for i in range(self.cell_height):
             for j in range(self.cell_width):
-                val = self.current_generation[i][j]
+                val = self.grid[i][j]
                 if val == 1:
                     colour = pygame.Color('green')
                 else:
@@ -137,12 +137,12 @@ class GameOfLife:
         out : Cells
             Список соседних клеток.
         """
-        A = []
+        neighbours = []
         for i in range(-1, 2):
             for j in range(-1, 2):
                 if 0 <= cell[0] + i < self.cell_height and 0 <= cell[1] + j < self.cell_width and (i, j) != (0, 0):
-                    A.append(self.current_generation[cell[0] + i][cell[1] + j])
-        return A
+                    neighbours.append(self.grid[cell[0] + i][cell[1] + j])
+        return neighbours
 
 
     def get_next_generation(self) -> Grid:
@@ -164,7 +164,7 @@ class GameOfLife:
                     if value == 1:
                         count += 1
 
-                val = self.previous_generation[i][j]
+                val = self.grid[i][j]
                 if val == 1:
                     if count < 2:
                         A[i].append(0)
