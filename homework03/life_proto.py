@@ -63,7 +63,7 @@ class GameOfLife:
             # Отрисовка списка клеток
             self.draw_grid()
             # Выполнение одного шага игры (обновление состояния ячеек)
-            self.previous_generation = self.current_generation
+
             self.grid = self.get_next_generation()
 
             pygame.display.flip()
@@ -89,19 +89,19 @@ class GameOfLife:
             Матрица клеток размером `cell_height` х `cell_width`.
         """
         if randomize:
-            A = []
+            Grid1: List = []
             for i in range (self.cell_height):
-                A.append([])
+                Grid1.append([])
                 for j in range (self.cell_width):
-                    A[i].append(random.randint(0,1))
-            return A
+                    Grid1[i].append(random.randint(0,1))
+            return Grid1
         else:
-            A = []
+            Grid2: List = []
             for i in range(self.cell_height):
-                A.append([])
+                Grid2.append([])
                 for j in range(self.cell_width):
-                    A[i].append(0)
-            return A
+                    Grid2[i].append(0)
+            return Grid2
         pass
 
 
@@ -154,7 +154,7 @@ class GameOfLife:
         out : Grid
             Новое поколение клеток.
         """
-        A = []
+        A: List = []
         for i in range (self.cell_height):
             A.append([])
             for j in range (self.cell_width):
@@ -180,3 +180,6 @@ class GameOfLife:
         return A
 
 
+if __name__ == '__main__':
+    game = GameOfLife(320, 240, 20, 1)
+    game.run()

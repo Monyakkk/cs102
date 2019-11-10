@@ -86,3 +86,7 @@ class GUI(UI):
             clock.tick(self.speed)
         pygame.quit()
 
+if __name__ == "__main__":
+    life = GameOfLife((50, 100), True, max_generations=200)
+    gui = GUI(life)
+    gui.run()

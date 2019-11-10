@@ -9,7 +9,7 @@ from typing import List, Optional, Tuple
 Cell = Tuple[int, int]
 Cells = List[int]
 Grid = List[Cells]
-
+A = List[int]
 
 class GameOfLife:
     
@@ -30,21 +30,22 @@ class GameOfLife:
         # Текущее число поколений
         self.generations = 1
 
+
     def create_grid(self, randomize: bool=False) -> Grid:
         if randomize:
-            A = []
+            Grid1: List = []
             for i in range(self.rows):
-                A.append([])
+                Grid1.append([])
                 for j in range(self.cols):
-                    A[i].append(random.randint(0, 1))
-            return A
+                    Grid1[i].append(random.randint(0, 1))
+            return Grid1
         else:
-            A = []
+            Grid2: List = []
             for i in range(self.rows):
-                A.append([])
+                Grid2.append([])
                 for j in range(self.cols):
-                    A[i].append(0)
-            return A
+                    Grid2[i].append(0)
+            return Grid2
 
 
     def get_neighbours(self, cell: Cell) -> Cells:
@@ -58,7 +59,7 @@ class GameOfLife:
 
 
     def get_next_generation(self) -> Grid:
-        A = []
+        A: List = []
         for i in range(self.rows):
             A.append([])
             for j in range(self.cols):
@@ -140,7 +141,7 @@ class GameOfLife:
 
 
 
-    def save(filename: pathlib.Path) -> None:
+    def save(self, filename: pathlib.Path) -> None:
         """
         Сохранить текущее состояние клеток в указанный файл.
         """
