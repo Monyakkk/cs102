@@ -1,3 +1,4 @@
+# coding=utf-8
 import pandas as pd
 import requests
 import textwrap
@@ -15,8 +16,6 @@ from nltk.corpus import stopwords
 
 morph = pymorphy2.MorphAnalyzer()
 
-#stop_words_default = stopwords.words('russian')
-#stop_words_default_en = stopwords.words('english')
 
 stop_words = []
 

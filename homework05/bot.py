@@ -9,7 +9,7 @@ from typing import List, Tuple
 
 
 bot = telebot.TeleBot(config.access_token)
-#telebot.apihelper.proxy = {'https': 'https://162.243.64.151:3128'}
+telebot.apihelper.proxy = {'https': 'https://104.248.53.46:3128'}
 
 def get_page(group: str, week: str='') -> str:
     if week:

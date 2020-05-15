@@ -1,3 +1,4 @@
+# coding=utf-8
 import requests
 import time
 import json
@@ -39,7 +40,7 @@ def get_friends(user_id, fields):
 
    
     domain = "https://api.vk.com/method"
-    access_token = '224c7265815817046887a124c3fb93e19fd57180b84c00a7bb90e8ff45b88f8c5f0a8e0106c8380f5f6fe'
+    access_token = 'fba34d609fd65107c259248fc54a30e80425cb36374246f9111e7b4710a76bd17df16398bae1211237033'
     v = '5.103'
 
     query = f"{domain}/friends.get?access_token={access_token}&user_id={user_id}&fields={fields}&v={v}"
