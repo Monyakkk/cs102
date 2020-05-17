@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load social_share %}
 
 <html>
   <head>
@@ -9,7 +10,10 @@
           href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic|Oxygen:300,400,700" />
     <script src="{% static "elevennote/jquery.js" %}"></script>
     <script src="{% static "elevennote/main.js" %}"></script>
+    <script src="{% static "bootstraptag/bootstrap-tagsinput.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
     <link rel="stylesheet" media="all" href='{% static "font-awesome/css/font-awesome.css" %}'>
+    <link rel="stylesheet" media="all" href='{% static "bootstraptag/bootstrap-tagsinput.css" %}'>
 
     {% block extra_head %}{% endblock %}
   </head>
@@ -20,9 +24,9 @@
         {% if user.is_authenticated %}
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto"></ul>
-          <span class="navbar-text">
+          <span class="navbar-text" data-toggle="tooltip" data-placement="right" title="{% if user.is_verified %} Confirmed! {% else %} Not confirmed{% endif %}">
             Signed in as {{ user.email }}.
-            <a href="#">Profile</a> | 
+            <a href="#">Profile</a> |
             <a href="{% url 'accounts:logout' %}">Logout</a>
           </span>
         </div>

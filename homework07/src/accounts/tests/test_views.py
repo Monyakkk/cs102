@@ -1,15 +1,13 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model
-
 from accounts.views import RegisterView
 from accounts.forms import UserCreationForm
 
-
 User = get_user_model()
 
-class RegisterViewTests(TestCase):
 
+class RegisterViewTests(TestCase):
     def setUp(self):
         url = reverse('accounts:register')
         self.response = self.client.get(url)
@@ -35,12 +33,10 @@ class RegisterViewTests(TestCase):
 
 
 class SuccessfulSignUpTests(TestCase):
-
     def setUp(self):
         url = reverse('accounts:register')
         data = {
-            'email': 'user@example.com',
-            'password1': 'secret',
+            'email': 'user@example.com', 'password1': 'secret',
             'password2': 'secret',
         }
         self.response = self.client.post(url, data)
@@ -61,7 +57,6 @@ class SuccessfulSignUpTests(TestCase):
 
 
 class InvalidSingUpTests(TestCase):
-
     def setUp(self):
         url = reverse('accounts:register')
         self.response = self.client.post(url, {})
@@ -75,4 +70,3 @@ class InvalidSingUpTests(TestCase):
 
     def test_dont_create_user(self):
         self.assertFalse(User.objects.exists())
-
